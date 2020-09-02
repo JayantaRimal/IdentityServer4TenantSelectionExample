@@ -1,0 +1,61 @@
+<br />
+
+<div class="text-center">
+<p>Authentication Status : {{ isAuthenticated }}</p>
+<div><button class="btn btn-info" *ngIf="!isAuthenticated" (click)="login()">Login</button></div>
+<div><button class="btn btn-danger" *ngIf="isAuthenticated" (click)="logout()">Logout</button></div>
+</div>
+
+
+
+<br />
+
+<div *ngIf="isAuthenticated" class="text-center col-md-6 offset-md-3">
+
+<table class="table table-striped table-bordered table-hover ">
+<thead class="thead-dark">
+ <tr>
+
+    <th>Field</th>
+    <th>Value</th>
+ </tr>
+</thead>
+<tbody>  
+<tr>
+
+    <td>Sub</td>
+    <td>{{userData.sub}}</td>
+
+</tr>
+<tr>
+    <td>Name</td>
+    <td>{{userData.name}}</td>
+</tr>
+<tr>
+    <td>Given Name</td>
+    <td>{{userData.given_name}}</td>
+</tr>
+<tr>
+    <td>Family Name</td>
+    <td>{{userData.family_name}}</td>
+</tr>
+<tr>
+    <td>Email</td>
+    <td>{{userData.email}}</td>
+</tr>
+<tr>
+    <td>Website</td>
+    <td>{{userData.website}}</td>
+</tr>
+
+<tr>
+    <td>Database Name</td>
+    <td>{{userData.database_name}}</td>
+</tr>
+</tbody> 
+
+</table>
+
+
+</div>
+

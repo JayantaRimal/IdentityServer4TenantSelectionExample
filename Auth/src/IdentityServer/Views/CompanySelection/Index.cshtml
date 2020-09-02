@@ -1,0 +1,56 @@
+﻿@model List<IdentityServer.Models.Company>
+@{
+    ViewData["Title"] = "Company Selection";
+}
+
+<div class="container">
+
+    <div class="panel panel-default">
+
+        <h3 class="panel-title">Company</h3>
+
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                <tr>
+                    <th scope="row">#</th>
+                    <td>
+                        <a href="javascript:void(0);" onclick="selectCompany('@item.DatabaseName')">@item.CompanyName</a>
+                    </td>
+                    <td>@item.StartDate</td>
+                    <td>@item.EndDate</td>
+                </tr>
+                }
+
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<form method="post" id="submit_Form" action="/CompanySelection/Select">
+    <input type="hidden" id="submitCompany" name="DatabaseName" />
+</form>
+
+<script>
+
+    function selectCompany(database) {
+        document.getElementById("submitCompany").value = database;
+        document.getElementById("submit_Form").submit();
+    }
+
+</script>
+
